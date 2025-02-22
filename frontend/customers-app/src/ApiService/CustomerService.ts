@@ -1,4 +1,4 @@
-const BASE_URL = "https://localhost:7082/customers";
+const BASE_URL = "http://backend:7082/customers";
 
 const customerService = {
   async getAll(search = "", sortBy = "", desc = true, page = 1, pageSize = 10) {
