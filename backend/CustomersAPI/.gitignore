@@ -1,0 +1,31 @@
+.vs/
+
+# Build files
+bin/
+obj/
+
+# Visual Studio specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# VS Code settings
+.vscode/
+
+# Rider/JetBrains
+.idea/
+*.iml
+
+# NuGet
+*.nupkg
+packages/
+project.lock.json
+package-lock.json
+
+# ASP.NET
+appsettings.Development.json
+secrets.json
+
+# Entity Framework Migrations
+Migrations/
