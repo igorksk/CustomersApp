@@ -7,7 +7,7 @@ EXPOSE 7081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY CustomersAPI ./
-RUN dotnet restore
+RUN dotnet restore "CustomersAPI/CustomersAPI.csproj"
 RUN dotnet publish -c Release -o /app/publish
 
 # Use runtime image

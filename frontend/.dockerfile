@@ -1,7 +1,7 @@
 # Use Node.js image to build the app
 FROM node:18 AS build
 WORKDIR /app
-COPY package.json package-lock.json ./
+COPY ./customers-app/package.json ./customers-app/package-lock.json ./
 RUN npm install
 COPY ./customers-app/package*.json ./
 RUN npm run build
