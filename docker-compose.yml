@@ -2,7 +2,7 @@ services:
   backend:
     build: ./backend
     ports:
-      - "7081:7081"
+      - "7082:7082"
     environment:
       - ASPNETCORE_URLS=http://+:7082
     networks:
