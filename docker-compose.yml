@@ -4,7 +4,7 @@ services:
     ports:
       - "7081:7081"
     environment:
-      - ASPNETCORE_URLS=http://+:7081
+      - ASPNETCORE_URLS=http://+:7082
     networks:
       - app_network
 
@@ -15,7 +15,7 @@ services:
     depends_on:
       - backend
     environment:
-      - REACT_APP_API_URL=http://backend:7081
+      - REACT_APP_API_URL=http://backend:7082
     networks:
       - app_network
 
