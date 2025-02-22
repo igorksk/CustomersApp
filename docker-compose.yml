@@ -1,8 +1,6 @@
-version: '3.8'
-
 services:
   backend:
-    build: ./backend/CustomerAPI
+    build: ./backend
     ports:
       - "7081:7081"
     environment:
@@ -11,7 +9,7 @@ services:
       - app_network
 
   frontend:
-    build: ./frontend/customers-app
+    build: ./frontend
     ports:
       - "3000:80"
     depends_on:
