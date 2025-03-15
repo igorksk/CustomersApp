@@ -1,6 +1,5 @@
 ﻿using CustomersAPI.DataContext;
 using CustomersAPI.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
