@@ -31,6 +31,12 @@ services:
       - backend
     environment:
       - REACT_APP_API_URL=http://backend:7082
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+      - HOST=0.0.0.0
+    volumes:
+      - ./frontend/customers-app:/app
+      - /app/node_modules 
     networks:
       - app_network
 
