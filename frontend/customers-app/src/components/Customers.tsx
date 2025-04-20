@@ -66,52 +66,60 @@ export default function Customers() {
   return (
     <div className="customers-container">
       <div className="customers-box">
-        <Search placeholder="Search customers" onSearch={setSearch} enterButton />
-        <Select
-          placeholder="Sort by"
-          onChange={setSortBy}
-          className="w-32"
-          options={[
-            { value: "name", label: "Name" },
-            { value: "email", label: "Email" }
-          ]}
-        />
-        <Select
-          placeholder="Order"
-          onChange={value => setDesc(value === "true")}
-          className="w-32"
-          options={[
-            { value: "true", label: "Descending" },
-            { value: "false", label: "Ascending" }
-          ]}
-        />
-        <Button type="primary" icon={<PlusOutlined />} onClick={handleAdd}>
-          Add
-        </Button>
-        <Table
-          dataSource={customers}
-          rowKey="id"
-          columns={[
-            { title: "ID", dataIndex: "id" },
-            { title: "Name", dataIndex: "name" },
-            { title: "Email", dataIndex: "email" },
-            {
-              title: "Actions",
-              render: (_: any, record: Customer) => (
-                <div className="flex gap-2">
-                  <Button icon={<EditOutlined />} onClick={() => handleEdit(record)} />
-                  <Button icon={<DeleteOutlined />} danger onClick={() => handleDelete(record.id)} />
-                </div>
-              ),
-            },
-          ]}
-          pagination={{
-            current: currentPage,
-            pageSize,
-            total: totalCustomers,
-            onChange: setCurrentPage
-          }}
-        />
+        <div className="controls-container">
+          <div className="search-container">
+            <Search placeholder="Search customers" onSearch={setSearch} enterButton />
+          </div>
+          <div className="sort-container">
+            <Select
+              placeholder="Sort by"
+              onChange={setSortBy}
+              className="w-32"
+              options={[
+                { value: "name", label: "Name" },
+                { value: "email", label: "Email" }
+              ]}
+            />
+            <Select
+              placeholder="Order"
+              onChange={value => setDesc(value === "true")}
+              className="w-32"
+              options={[
+                { value: "true", label: "Descending" },
+                { value: "false", label: "Ascending" }
+              ]}
+            />
+            <Button type="primary" icon={<PlusOutlined />} onClick={handleAdd}>
+              Add
+            </Button>
+          </div>
+        </div>
+        <div className="table-container">
+          <Table
+            dataSource={customers}
+            rowKey="id"
+            columns={[
+              { title: "ID", dataIndex: "id" },
+              { title: "Name", dataIndex: "name" },
+              { title: "Email", dataIndex: "email" },
+              {
+                title: "Actions",
+                render: (_: any, record: Customer) => (
+                  <div className="actions-container">
+                    <Button icon={<EditOutlined />} onClick={() => handleEdit(record)} />
+                    <Button icon={<DeleteOutlined />} danger onClick={() => handleDelete(record.id)} />
+                  </div>
+                ),
+              },
+            ]}
+            pagination={{
+              current: currentPage,
+              pageSize,
+              total: totalCustomers,
+              onChange: setCurrentPage
+            }}
+          />
+        </div>
       </div>
       <Modal
         title={editingCustomer ? "Edit Customer" : "Add Customer"}
