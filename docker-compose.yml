@@ -8,8 +8,6 @@ services:
       - "1433:1433"
     networks:
       - app_network
-    volumes:
-      - sqlserver_data:/var/opt/mssql
 
   backend:
     build: ./backend
