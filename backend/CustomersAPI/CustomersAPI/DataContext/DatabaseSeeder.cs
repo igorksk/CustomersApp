@@ -9,7 +9,7 @@ namespace CustomersAPI.DataContext
             using var scope = app.Services.CreateScope();
             var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-            if (!db.Customers.Any()) 
+            if (!db.Customers.Any())
             {
                 db.Customers.AddRange(
                     new Customer { Name = "John Doe", Email = "john@example.com" },
