@@ -35,3 +35,6 @@ Full-stack application for managing customer data, built with ASP.NET Core 8 (ba
 ## Docker Compose
 
 The application is containerized with Docker Compose. Run `docker-compose up` to build and launch the application.
+
+![image](https://github.com/user-attachments/assets/613bbb75-f750-49ce-89ef-63042f01a048)
+
