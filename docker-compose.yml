@@ -13,6 +13,7 @@ services:
     build: ./backend
     ports:
       - "7082:7082"
+    restart: always
     environment:
       - ASPNETCORE_URLS=http://+:7082
       - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=CustomersDb;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=True
@@ -41,6 +42,3 @@ services:
 networks:
   app_network:
     driver: bridge
-
-volumes:
-  sqlserver_data:

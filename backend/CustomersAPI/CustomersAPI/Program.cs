@@ -1,6 +1,7 @@
 using CustomersAPI.DataContext;
 using CustomersAPI.Endpoints;
 using CustomersAPI.Repository;
+using CustomersAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace CustomersAPI
@@ -15,6 +16,7 @@ namespace CustomersAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
+            builder.Services.AddTransient<ICustomerService, CustomerService>();
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll", policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
