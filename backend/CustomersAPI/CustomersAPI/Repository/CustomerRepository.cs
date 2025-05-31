@@ -1,5 +1,4 @@
 ﻿using CustomersAPI.DataContext;
-using CustomersAPI.Endpoints;
 using CustomersAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
