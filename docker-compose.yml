@@ -1,14 +1,4 @@
 services:
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=YourStrong@Passw0rd
-    ports:
-      - "1433:1433"
-    networks:
-      - app_network
-
   backend:
     build: ./backend
     ports:
@@ -16,9 +6,6 @@ services:
     restart: always
     environment:
       - ASPNETCORE_URLS=http://+:7082
-      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=CustomersDb;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=True
-    depends_on:
-      - sqlserver
     networks:
       - app_network
 

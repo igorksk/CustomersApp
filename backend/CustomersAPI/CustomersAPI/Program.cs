@@ -12,7 +12,7 @@ namespace CustomersAPI
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+                options.UseInMemoryDatabase("CustomersDb"));
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
@@ -24,11 +24,11 @@ namespace CustomersAPI
 
             var app = builder.Build();
 
-            // Apply migrations
+            // Ensure database is created (for in-memory database)
             using (var scope = app.Services.CreateScope())
             {
                 var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-                db.Database.Migrate();
+                db.Database.EnsureCreated();
             }
 
             if (app.Environment.IsDevelopment())
