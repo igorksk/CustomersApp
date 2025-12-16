@@ -15,8 +15,8 @@ namespace CustomersAPI
                 options.UseInMemoryDatabase("CustomersDb"));
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
-            builder.Services.AddTransient<ICustomerService, CustomerService>();
+            builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+            builder.Services.AddScoped<ICustomerService, CustomerService>();
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll", policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
